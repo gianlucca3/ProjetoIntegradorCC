@@ -1,0 +1,80 @@
+
+<div class="produto">
+    <img src="pao.jpg" alt="Pão Francês">
+    <h3>Pão Francês</h3>
+    <p>R$ 0,50</p>
+	</div>
+
+<div class="input-quantity" style="display: flex; align-items: center; gap: 5px;">
+    <button aria-label="Diminuir quantidade" class="btn-quantidade" onclick="alterarQuantidade(-1)">
+        <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px;">
+            <polygon points="0 4.5 10 4.5 10 5.5 0 5.5" fill="#000"></polygon>
+        </svg>
+    </button>
+    <input type="text" class="input-text" role="spinbutton" aria-live="assertive" aria-valuenow="1" value="1" style="text-align: center; width: 50px;" readonly>
+    <button aria-label="Aumentar quantidade" class="btn-quantidade" onclick="alterarQuantidade(1)">
+        <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px;">
+            <polygon points="5.5 0 5.5 4.5 10 4.5 10 5.5 5.5 5.5 5.5 10 4.5 10 4.5 5.5 0 5.5 0 4.5 4.5 4.5 4.5 0" fill="#000"></polygon>
+        </svg>
+    </button>
+</div>
+
+<script>
+    function alterarQuantidade(valor) {
+        // Obtém o campo de entrada
+        const inputQuantidade = document.querySelector('input[role="spinbutton"]');
+        let quantidadeAtual = parseInt(inputQuantidade.value);
+
+        // Atualiza a quantidade com o valor passado
+        quantidadeAtual += valor;
+
+        // Garante que a quantidade não fique menor que 1
+        if (quantidadeAtual < 1) {
+            quantidadeAtual = 1;
+        }
+
+        // Atualiza o valor do campo de entrada
+        inputQuantidade.value = quantidadeAtual;
+        inputQuantidade.setAttribute('aria-valuenow', quantidadeAtual);
+    }
+</script>
+
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <!-- Botão de Decremento -->
+        <button onclick="alterarQuantidade('Pão Francês', 0.50, -1)" style="
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        ">-</button>
+
+        <!-- Campo de Quantidade -->
+        <input
+            type="text"
+            id="quantidade-pao-frances"
+            value="1"
+            readonly
+            style="
+                width: 50px;
+                text-align: center;
+                font-size: 16px;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            "
+        />
+
+        <!-- Botão de Incremento -->
+        <button onclick="alterarQuantidade('Pão Francês', 0.50, 1)" style="
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        ">+</button>
+    </div>
+</div>

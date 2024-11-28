@@ -1,0 +1,27 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['logado'])){
+	header("location: index.php");
+	session_destroy();
+	
+}
+
+?>
+<html>
+<head>
+	<title>Padaria Flocos de Neve</title>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- frames -->
+
+<frameset rows="30,*" framespacing="0" frameborder="0" border="0">
+    <frame src="ind.php" name="frmMenu" id="frmMenu" frameborder="0" scrolling="no" noresize marginwidth="0" marginheight="0">
+			
+	
+	<frame src="home.php " name="frmMain" id="frmMain" frameborder="0" scrolling="Auto" marginwidth="0" marginheight="0">
+</frameset>
+</body>
+</html>
